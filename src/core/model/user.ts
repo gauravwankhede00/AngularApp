@@ -3,6 +3,6 @@ export interface User {
     id: number;
     name: string;
     email: string;
-    role: string;
+    role: 'admin' | 'user' | 'owner';
     userType: UserType;
 }

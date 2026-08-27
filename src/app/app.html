@@ -1,3 +1,13 @@
 <h5 appUserType [user]="currentUser">Welcome to AngularApp!</h5>
 
+
+<div>
+  <p>Username: {{ currentUser.name }}</p>
+
+   <div class="border" *appHasPermission="currentUser">
+    <button >Edit</button>
+    <button >Delete</button>
+  </div>
+</div>
+
 <router-outlet />

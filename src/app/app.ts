@@ -1,12 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { User } from '../core/model/user';
-import { UserType } from '../shared/user-type';
+import { UserType } from '../shared/directive/user-type';
+import { HasPermission } from '../shared/directive/has-permission';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, UserType],
+  imports: [RouterOutlet, UserType, HasPermission],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -15,9 +16,9 @@ export class App {
   currentUser : User ={
     email: '',
     id: 0,
-    name: '',
-    role: '',
-    userType:  'Bronze'
+    name: 'John Doe',
+    role: 'owner',
+    userType:  'Gold'
   };
   
 }

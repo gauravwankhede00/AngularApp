@@ -3,10 +3,11 @@ import { Post } from '../../core/model/post';
 import { PostsData } from '../../core/constant/DummyData/posts';
 import { LazyRender } from '../../shared/directive/lazy-render';
 import { CommonModule } from '@angular/common';
+import { TextTrimmerPipe } from '../../shared/pipe/text-trimmer-pipe';
 
 @Component({
   selector: 'app-posts',
-  imports: [ LazyRender, CommonModule],
+  imports: [ LazyRender, CommonModule, TextTrimmerPipe ],
   templateUrl: './posts.html',
   styleUrl: './posts.css',
 })

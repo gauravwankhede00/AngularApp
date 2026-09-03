@@ -1,17 +1,15 @@
 <div>
-  <div *ngFor="let post of visiblePosts; let last = last; index as i; trackBy: trackByPostId">
-    <h4>{{i + 1}} {{ post.title }}</h4>
-    <p>{{ post.name }}</p>
-    <img [src]="post.url" alt="Post Image" />
+    <div *ngFor="let post of visiblePosts; let last = last; index as i; trackBy: trackByPostId">
+        <h4 title="{{ post.title }}">{{i + 1}} {{ post.title | textTrimmer | uppercase}}</h4>
+        <p> name : {{ post.name | textTrimmer:{ maxLength: 5 } }}</p>
+        <p>date : {{ post.date | textTrimmer:{ maxLength: 4, replacement: '*' } }}</p>
+        <img [src]="post.url" alt="Post Image" />
 
-    <div *ngIf="last"
-         appLazyRender
-         [scrollDisabled]="noMoreData"
-         (appInfiniteScroll)="loadMore()">
+        <div *ngIf="last" appLazyRender [scrollDisabled]="noMoreData" (appInfiniteScroll)="loadMore()">
+        </div>
     </div>
-  </div>
 
-  <div *ngIf="noMoreData">
-     All 100 posts loaded!
-  </div>
+    <div *ngIf="noMoreData">
+        All 100 posts loaded!
+    </div>
 </div>

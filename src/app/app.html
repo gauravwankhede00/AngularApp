@@ -10,22 +10,4 @@
   </div>
 </div>
 
-
-<div>
-  <div *ngFor="let post of visiblePosts; let last = last; index as i; trackBy: trackByPostId">
-    <h4>{{i + 1}} {{ post.title }}</h4>
-    <p>{{ post.name }}</p>
-    <img [src]="post.url" alt="Post Image" />
-
-    <div *ngIf="last"
-         appLazyRender
-         [scrollDisabled]="noMoreData"
-         (appInfiniteScroll)="loadMore()">
-    </div>
-  </div>
-
-  <div *ngIf="noMoreData">
-     All 100 posts loaded!
-  </div>
-</div>
 <router-outlet />

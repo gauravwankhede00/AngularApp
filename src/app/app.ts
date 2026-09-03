@@ -3,14 +3,14 @@ import { RouterOutlet } from '@angular/router';
 import { User } from '../core/model/user';
 import { UserType } from '../shared/directive/user-type';
 import { HasPermission } from '../shared/directive/has-permission';
-import { LazyRender } from '../shared/directive/lazy-render';
 import { CommonModule } from '@angular/common';
-import { Post, Posts } from '../core/model/post';
+import { Post } from '../core/model/post';
+import { PostsData } from '../core/constant/DummyData/posts';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, UserType, HasPermission, LazyRender, CommonModule],
+  imports: [RouterOutlet, UserType, HasPermission, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -34,7 +34,7 @@ export class App implements OnInit {
   noMoreData = false;
 
   ngOnInit() {
-    this.allPosts = Posts; // your ready data goes here
+    this.allPosts = PostsData; // your ready data goes here
     this.loadMore(); // load first 10 immediately
   }
 

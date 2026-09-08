@@ -1,0 +1,26 @@
+<h2>I18nPluralPipe Example</h2>
+
+<p>
+    Current messages count: {{ messages.length }}<br />
+    Pluralized text:
+    
+    {{ messages.length | i18nPlural : messageMapping }}
+</p>
+
+<button (click)="changeToZeroMessages()">0 messages</button>
+<button (click)="changeToOneMessage()">1 message</button>
+<button (click)="changeToManyMessages()">Many messages</button>
+
+<hr />
+
+<h2>I18nSelectPipe Example</h2>
+
+<p>
+    Current gender: {{ gender }}<br />
+    Selected text:
+    {{ gender | i18nSelect : inviteMap }}
+</p>
+
+<button (click)="changeGenderToMale()">Male</button>
+<button (click)="changeGenderToFemale()">Female</button>
+<button (click)="changeGenderToOther()">Other</button>
